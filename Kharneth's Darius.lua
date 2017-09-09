@@ -83,7 +83,6 @@ function Darius:HasBuff(unit, buffname)
 	end
 	return false
 end
-
 function Darius:GetValidEnemy(range)
     for i = 1,Game.HeroCount() do
         local enemy = Game.Hero(i)
@@ -119,8 +118,7 @@ local function Ready(spell)
   	return myHero:GetSpellData(spell).currentCd == 0 and myHero:GetSpellData(spell).level > 0 and myHero:GetSpellData(spell).mana <= myHero.mana
 end
 
-function Darius:isReady (spell)
-	return Game.CanUseSpell(spell) == 0 
+function Darius:isReady (spell)	return Game.CanUseSpell(spell) == 0 
 end
 
 function Darius:IsValidTarget(unit,range)
@@ -135,7 +133,7 @@ function Darius:Combo()
 	
 	local target =  (_G.SDK and _G.SDK.TargetSelector:GetTarget(1200, _G.SDK.DAMAGE_TYPE_PHYSICAL)) or (_G.GOS and _G.GOS:GetTarget(1200,"AD")) or ( _G.EOWLoaded and EOW:GetTarget())
 		
-	    if self:IsValidTarget(target,Q.range*0.9) and self.Menu.Mode.Combo.W:Value() and self:isReady(_Q) and myHero.attackData.state == STATE_WINDDOWN  then
+	    if self:IsValidTarget(target,Q.range*1.9) and self.Menu.Mode.Combo.W:Value() and self:isReady(_Q) and myHero.attackData.state == STATE_WINDDOWN  then
 			Control.CastSpell(HK_Q,target)
 	    end	
 	    
@@ -143,7 +141,7 @@ function Darius:Combo()
 			Control.CastSpell(HK_W,target)
 	    end
 
-		if self:IsValidTarget(target,E.range*0.9) and self.Menu.Mode.Combo.E:Value() and self:isReady(_E) and myHero.attackData.state == STATE_WINDDOWN  then
+		if self:IsValidTarget(target,E.range*2.9) and self.Menu.Mode.Combo.E:Value() and self:isReady(_E) and myHero.attackData.state == STATE_WINDDOWN  then
 			Control.CastSpell(HK_E,target)
 	    end
 
