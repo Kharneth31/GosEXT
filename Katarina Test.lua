@@ -30,19 +30,7 @@ function Katarina:LoadMenu()
 	self.Menu.Mode.Harass:MenuElement({id = "Q", name = "Use Q", value = true})
 	self.Menu.Mode.Harass:MenuElement({id = "W", name = "Use W", value = true})
 	self.Menu.Mode.Harass:MenuElement({id = "E", name = "Use E", value = true})
-	
-	--Main Menu-- Katarina -- LaneClear
-	self.Menu.Mode:MenuElement({type = MENU, id = "LaneClear", name = "Lane Clear"})
-	self.Menu.Mode.LaneClear:MenuElement({id = "Q", name = "Use Q", value = true})
-        self.Menu.Mode.LaneClear:MenuElement({id = "W", name = "Use W", value = true})
-	self.Menu.Mode.LaneClear:MenuElement({id = "E", name = "Use E", value = true})
-	
-	--Main Menu-- Katarina -- JungleClear
-	self.Menu.Mode:MenuElement({type = MENU, id = "JungleClear", name = "Jungle Clear"})
-	self.Menu.Mode.JungleClear:MenuElement({id = "Q", name = "Use Q", value = true})
-	self.Menu.Mode.JungleClear:MenuElement({id = "W", name = "Use W", value = true})
-        self.Menu.Mode.JungleClear:MenuElement({id = "E", name = "Use E", value = true})
-	
+			
 end
 
 function Katarina:Tick()
@@ -170,44 +158,6 @@ function Katarina:Harass()
 		if self:IsValidTarget(target,E.range) and self.Menu.Mode.Harass.E:Value() and self:isReady(_E) and not myHero.isChanneling  then
 			Control.CastSpell(HK_E,target)
 		end
-end
-
-function Katarina:Clear()
-
-	if self:GetValidMinion(Q.range) == false then return end
-	
-		for i = 1, Game.MinionCount() do
-		local minion = Game.Minion(i)
-		if  minion.team == 200 then
-			if self:IsValidTarget(minion,Q.range) self.Menu.Mode.LaneClear.Q:Value() and self:isReady(_Q) then
-					Control.CastSpell(HK_Q,target)
-				break
-			end
-			if self:IsValidTarget(minion,E.range) self.Menu.Mode.LaneClear.E:Value() and self:isReady(_E) then
-					Control.CastSpell(HK_E,target)
-				break
-			end
-		end
-	end
-end
-
-function Evelynn:JClear()
-
-	if self:GetValidMinion(Q.range) == false then return end
-	
-		for i = 1, Game.MinionCount() do
-		local minion = Game.Minion(i)
-		if  minion.team == 300 then
-			if self:IsValidTarget(minion,Q.range)  self:isReady(_Q) then
-					Control.CastSpell(HK_Q,target)
-				break
-			end
-			if self:IsValidTarget(minion,E.range) self:isReady(_E) then
-					Control.CastSpell(HK_E,target)
-				break
-			end
-		end
-	end
 end
 
 function Katarina:HpPred(unit, delay)
