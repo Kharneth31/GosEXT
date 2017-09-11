@@ -159,7 +159,7 @@ function Katarina:Harass()
 	if self:GetValidEnemy(Q.range) == false then return end
 	
 	if (not _G.SDK and not _G.GOS and not _G.EOWLoaded) then return end
-	
+e	
 	local target =  (_G.SDK and _G.SDK.TargetSelector:GetTarget(Q.target, _G.SDK.DAMAGE_TYPE_PHYSICAL)) or (_G.GOS and _G.GOS:GetTarget(Q.target,"AD")) or ( _G.EOWLoaded and EOW:GetTarget())
 		
 	    if self:IsValidTarget(target,Q.range) and self.Menu.Mode.Harass.Q:Value() and self:isReady(_Q) and not myHero.isChanneling  then
@@ -176,11 +176,11 @@ function Katarina:Clear()
 		for i = 1, Game.MinionCount() do
 		local minion = Game.Minion(i)
 		if  minion.team == 200 then
-			if self:IsValidTarget(minion,Q.range) self.Menu.Mode.LaneClear.Q:Value() and self:isReady(_Q) then
+			if self:IsValidTarget(minion,Q.range) then self.Menu.Mode.LaneClear.Q:Value() and self:isReady(_Q) then
 					Control.CastSpell(HK_Q,target)
 				break
 			end
-			if self:IsValidTarget(minion,E.range) self.Menu.Mode.LaneClear.E:Value() and self:isReady(_E) then
+			if self:IsValidTarget(minion,E.range) then self.Menu.Mode.LaneClear.E:Value() and self:isReady(_E) then
 					Control.CastSpell(HK_E,target)
 				break
 			end
