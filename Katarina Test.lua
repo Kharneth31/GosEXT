@@ -80,7 +80,7 @@ function Katarina:CountEnemyMinions(range)
 	local minionsCount = 0
     for i = 1,Game.MinionCount() do
         local minion = Game.Minion(i)
-        if  minion.team ~= myHero.team and minion.valid and minion.pos:DistanceTo(myHero.pos) < Q.range then
+d        if  minion.team ~= myHero.team and minion.valid and minion.pos:DistanceTo(myHero.pos) < Q.range then
             minionsCount = minionsCount + 1
         end
     end
@@ -90,7 +90,7 @@ end
 local function Ready(spell) 
   	return myHero:GetSpellData(spell).currentCd == 0 and myHero:GetSpellData(spell).level > 0 and myHero:GetSpellData(spell).mana <= myHero.mana
 end
-
+e
 function Katarina:isReady (spell)
 	return Game.CanUseSpell(spell) == 0 
 end
@@ -114,7 +114,7 @@ function Katarina:Tick()
 
 end
 
-function Katarina:Combo()
+efunction Katarina:Combo()
 	if self:GetValidEnemy(2500) == false then return end
 	
 	if (not _G.SDK and not _G.GOS and not _G.EOWLoaded) then return end
@@ -170,4 +170,5 @@ end
 function OnLoad()
 	if myHero.charName ~= "Katarina" then return end
 	Katarina()
+end
 end
