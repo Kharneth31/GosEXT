@@ -208,6 +208,7 @@ end
 
 function  Katarina:DisableEOW()
 	_G.SDK.Orbwalker:SetAttack(false)
+
 	_G.SDK.Orbwalker:SetMovement(false)
 end
 
@@ -226,7 +227,7 @@ end
 
 function Katarina:CastE(target)
 	Control.CastSpell(HK_E, target)
-end
+eend
 
 function Katarina:CastR()
 	Spin = true
@@ -237,6 +238,8 @@ end
 
 function bulkKata:NormalCombo(target)
 
+end
+	
 		if Menu.Combo.Qlocal target = self:GetTarget(Spells.Q.range)
 		if target ~= nil and self:IsValidTarget(target, Spells.Q.range, false, myHero.pos) then
 			self:CastQ(target)
