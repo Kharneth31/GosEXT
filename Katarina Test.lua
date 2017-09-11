@@ -39,9 +39,6 @@ function Katarina:Tick()
 	local Harass = (_G.SDK and _G.SDK.Orbwalker.Modes[_G.SDK.ORBWALKER_MODE_HARASS]) or (_G.GOS and _G.GOS:GetMode() == "Harass") or (_G.EOWLoaded and EOW:Mode() == "Harass")
 	if Combo then
 		self:Combo()
-	elseif Clear then
-		self:Clear()
-		self:JClear()
 	elseif Harass then
 		self:Harass()		
 	end
