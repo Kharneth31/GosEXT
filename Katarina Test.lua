@@ -233,7 +233,6 @@ function Katarina:CastR()
 	Spin = true
 	self:DisableEOW()
 	Control.CastSpell(HK_R)
-	DelayAction(function() Spin = false self:EnableEOW() end, 2.5)
 end
 
 function bulkKata:NormalCombo(target)
