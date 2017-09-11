@@ -227,7 +227,7 @@ end
 
 function Katarina:CastE(target)
 	Control.CastSpell(HK_E, target)
-eend
+end
 
 function Katarina:CastR()
 	Spin = true
